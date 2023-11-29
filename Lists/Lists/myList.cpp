@@ -106,6 +106,20 @@ public:
 		}
 	}
 
+
+	void Clear()
+	{
+		while (first != nullptr)
+		{
+			PopBack();
+		}
+	}
+
+
+	~List()
+	{
+		Clear();
+	}
 };
 
 int main()
