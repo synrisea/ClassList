@@ -31,6 +31,26 @@ public:
 		}
 	}
 
+
+	// Overloading the operator(=) : 
+
+	List& operator= (const List& otherList)
+	{
+		if (this != &otherList)
+		{
+			Clear();
+
+			Node* currentNode = otherList.first;
+			while (currentNode)
+			{
+				PushBack(currentNode->data);
+				currentNode = currentNode->next;
+			}
+		}
+		return *this;
+	}
+
+
 	// Methods : 
 
 	bool isEmpty() const
