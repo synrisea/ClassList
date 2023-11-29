@@ -127,6 +127,28 @@ public:
 	}
 
 
+	const T& Back() const
+	{
+		return last->data;
+	}
+
+	const T& Front() const
+	{
+		return first->data;
+	}
+
+	void PrintList() const
+	{
+		Node* currentNode = first;
+		while (currentNode)
+		{
+			std::cout << currentNode->data << " ";
+			currentNode = currentNode->next;
+		}
+		std::cout << std::endl;
+	}
+
+
 	void Clear()
 	{
 		while (first != nullptr)
@@ -144,6 +166,26 @@ public:
 
 int main()
 {
+	std::vector<int> vec1{ 4,5,12,2 };
+	std::vector<int> vec2{ 5,3,1,2 };
+
+	List<int> myList1(vec1);
+	List<int> myList2(vec2);
+
+	myList2 = myList1;
+
+	myList1.PopFront();
+	myList1.PushBack(5);
+	myList1.PopFront();
+	myList1.PushBack(7);
+	myList1.PopBack();
+	myList1.PushBack(4);
+	
+	myList1.PrintList();
+
+	std::cout << "\n";
+
+	myList2.PrintList();
 
 	return 0;
 }
